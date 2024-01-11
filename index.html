@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime</title>
+</head>
+<body>
+    <h1>최신 애니 목록</h1>
+
+    <ul>
+        {% for animation in animations %}
+            <li>{{ animation.title }} - <a href="{{ animation.link }}" target="_blank">시청</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add New Animation</h2>
+    <form method="post" action="{{ url_for('add_animation') }}">
+        <label for="title">제목:</label>
+        <input type="text" name="title" required>
+
+        <label for="link">링크:</label>
+        <input type="text" name="link" required>
+      
+        <button type="submit">Add Animation</button>
+    </form>
+</body>
+  
+</html>
